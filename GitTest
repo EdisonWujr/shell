@@ -98,4 +98,4 @@ $ git remote rename pb paul
 1. git branch branchname  ##创建分支
 2. git checkout branchname  ##切换到分支  
 3. git checkout -b branchname ##创建并切换到新分支
-
+4. git merge ## 合并分支
