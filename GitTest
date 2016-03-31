@@ -105,3 +105,5 @@ git log --oneline ##查看当前版本号
 git reset --hard  ##切换到指定版本号
 git reflog  ##查看所有版本号（包括之前的reset）
 3
+
+5
