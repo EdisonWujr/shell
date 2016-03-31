@@ -2,4 +2,95 @@
 ### 学习使用git版本管理工具，并注册了github账号，开始我的编程之路吧！
 ### 只要开始，就不算晚。
 
+知识点总结：
+一、Git 起步
+1.git 是分布式的版本管理系统。
+2.每个git客户端或开发者都存着一份完整的git库，即使在不联网的情况，也可以完成版本提交等工作，待联网后再提交到远程仓库。
+3.git每次记录的是提交后的文件快照，而不是差异。
+4.git文件只有三种状态，已提交（committed），已修改（modified）和已暂存（staged）.
+5.Git 管理项目时，文件流转的三个工作区域：Git 的工作目录，暂存区域，以及本地仓库。
+二、Git基本配置与命令
+1.配置用户信息
+$ git config --global user.name "EdisonWujr"
+$ git config --global user.email edison@opensgalaxy.com
+
+2.查看配置信息
+$ git config --list
+
+3.创建本地仓库
+$ git init
+
+4.对文件进行跟踪及提交
+$ git add README  ##跟踪新文件，如果文件做了修改那么此命令会将更新放入暂存区
+$ git commit -m 'initial project version' ##文件提交到本地仓库 并添加备注
+
+5.从现有仓库克隆
+$ git clone git://github.com/schacon/grit.git
+
+6.查当前文件状态
+$ git status 
+
+7. 忽略某些文件
+cat .gitignore *.[oa] *~  ###放在工作目录中
+
+我们再看一个 .gitignore 文件的例子：
+
+
+# 此为注释 – 将被 Git 忽略
+# *.a       
+# # 忽略所有 .a 结尾的文件
+# !lib.a    
+# # 但 lib.a 除外
+# /TODO     
+# # 仅仅忽略项目根目录下的 TODO 文件，不包括 subdir/TODO
+# build/    
+# # 忽略 build/ 目录下的所有文件
+# doc/*.txt 
+# # 会忽略 doc/notes.txt 但不包括 doc/server/arch.txt
+#
+8.尚未暂存的文件更新了哪些部分
+$ git diff  ##此命令比较的是工作目录中当前文件和暂存区域快照之间的差异，也就是修改之后还没有暂存起来的变化内容。
+
+##若要看已经暂存起来的文件和上次提交时的快照之间的差异，可以用 git diff --cached 命令
+
+9.提交更新
+$ git commit
+
+##给 git commit 加上-a 选项，Git 就会自动把所有已经跟踪过的文件暂存起来一并提交
+
+10.移除文件
+$ git rm
+
+$ git rm --cached ##只丛跟踪单中删除，不删除文件。
+
+11.移动文件
+$ git mv
+
+12.查看提交历史
+$ git log
+
+13.修改最后一次提交
+$ git commit --amend ##此命令将使用当前的暂存区域快照提交。如果刚才提交完没有作任何改动，直接运行此命令的话，相当于有机会重新编辑提交说明，但将要提交的文件快照和之前的一样。
+
+14.取消已经暂存的文件
+$ git reset HEAD benchmarks.rb
+
+15.取消对文件的修改
+$ git checkout -- benchmarks.rb
+
+16.添加远程仓库
+$ git remote add name git://github.com/paulboone/ticgit.git
+
+17.从远程仓库抓取数据
+$ git fetch [remote-name] ##fetch 命令只是将远端的数据拉到本地仓库，并不自动合并到当前工作分支，只有当你确实准备好了，才能手工合并。
+$ git pull ##目的都是要从原始克隆的远端仓库中抓取数据后，合并到工作目录中的当前分支。
+18.推送数据到远程仓库
+
+$ git push origin master
+
+19.查看远程仓库信息
+$ git remote show origin 
+
+20.远程仓库的删除和重命名
+$ git remote rename pb paul
 
