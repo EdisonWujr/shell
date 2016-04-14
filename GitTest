@@ -62,6 +62,9 @@ $ git commit
 $ git rm
 
 $ git rm --cached ##只丛跟踪单中删除，不删除文件。
+删除远程分支文件
+(1) $ git rm --cached
+(2) $ git push origin master
 
 11.移动文件
 $ git mv
@@ -99,11 +102,12 @@ $ git remote rename pb paul
 2. git checkout branchname  ##切换到分支  
 3. git checkout -b branchname ##创建并切换到新分支
 4. git merge ## 合并分支
+5. git branch ##查看本地分支
+6. git branch -a ##查看远程分支
+7. git push origin :serverfix ##删除远程分支
 
 四、git版本切换
 git log --oneline ##查看当前版本号
 git reset --hard  ##切换到指定版本号
 git reflog  ##查看所有版本号（包括之前的reset）
-3
 
-5
